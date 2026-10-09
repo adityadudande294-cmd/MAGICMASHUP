@@ -1,0 +1,25 @@
+# Environment & Secrets
+.env
+backend/.env
+.env.*
+*.env
+*.backup
+!.env.example
+
+# Python
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Operating System & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
