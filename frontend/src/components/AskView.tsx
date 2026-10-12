@@ -107,9 +107,14 @@ export const AskView: React.FC<AskViewProps> = ({
       <header className="h-16 px-6 border-b border-slate-800 bg-[#0B0F17]/95 flex items-center justify-between shrink-0">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2">
+            <img
+              src="/ampexweb-logo.png"
+              alt="Ampexweb"
+              className="h-6 w-6 rounded-md object-contain bg-white/95 p-0.5 shadow-2xs shrink-0"
+            />
             <span className="font-bold text-sm text-white">Ask Focused Mode</span>
-            <span className="px-1.5 py-0.5 text-[9px] font-semibold bg-indigo-950 border border-indigo-700 text-indigo-300 rounded uppercase">
-              Single LLM
+            <span className="px-2 py-0.5 text-[9.5px] font-semibold tracking-wider bg-cyan-950/80 border border-cyan-700/60 text-cyan-300 rounded-full">
+              An Ampexweb Product
             </span>
           </div>
 
@@ -264,6 +269,23 @@ export const AskView: React.FC<AskViewProps> = ({
             <span>Ask</span>
             <Send className="w-3 h-3" />
           </button>
+        </div>
+
+        {/* Ampexweb Footer Branding */}
+        <div className="max-w-4xl mx-auto pt-2.5 flex items-center justify-between text-[11px] text-slate-400 select-none">
+          <div className="flex items-center gap-2">
+            <img
+              src="/ampexweb-logo.png"
+              alt="Ampexweb Logo"
+              className="h-4.5 w-4.5 rounded object-contain bg-white/95 p-0.5 shadow-2xs shrink-0"
+            />
+            <span className="font-medium text-slate-300">
+              Powered by <strong className="text-white font-semibold">Ampexweb</strong> · An Ampexweb Product
+            </span>
+          </div>
+          <span className="text-[10px] font-mono text-slate-500 hidden sm:inline">
+            Single LLM Focused Gateway
+          </span>
         </div>
       </div>
     </div>

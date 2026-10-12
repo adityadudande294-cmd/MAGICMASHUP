@@ -150,6 +150,23 @@ export const BottomDock: React.FC<BottomDockProps> = ({
             </button>
           ))}
         </div>
+
+        {/* Sleek Ampexweb Footer Branding */}
+        <div className="pt-2 border-t border-slate-800/60 flex items-center justify-between text-[11px] text-slate-400 select-none">
+          <div className="flex items-center gap-2">
+            <img
+              src="/ampexweb-logo.png"
+              alt="Ampexweb Logo"
+              className="h-4.5 w-4.5 rounded object-contain bg-white/95 p-0.5 shadow-2xs shrink-0"
+            />
+            <span className="font-medium text-slate-300">
+              Powered by <strong className="text-white font-semibold">Ampexweb</strong> · An Ampexweb Product
+            </span>
+          </div>
+          <span className="text-[10px] font-mono text-slate-500 hidden sm:inline">
+            Enterprise Multi-LLM Studio
+          </span>
+        </div>
       </div>
     </div>
   );

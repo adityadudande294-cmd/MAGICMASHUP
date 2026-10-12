@@ -108,13 +108,22 @@ export const DashboardHome: React.FC<DashboardHomeProps> = ({
         </div>
 
         <div className="flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-slate-100 border border-slate-200/80 text-slate-700 text-xs">
+            <img
+              src="/ampexweb-logo.png"
+              alt="Ampexweb Logo"
+              className="h-5 w-5 rounded object-contain bg-white p-0.5 shadow-2xs"
+            />
+            <span className="font-semibold text-[11px] text-slate-600">An Ampexweb Product</span>
+          </div>
+
           <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-medium">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span className="hidden sm:inline">Engine Status:</span> Online (4 Models)
           </div>
           <button
             onClick={() => onNavigate('Compare')}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-medium shadow-sm transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-medium shadow-sm transition-colors cursor-pointer"
           >
             <SlidersHorizontal className="w-3.5 h-3.5" />
             <span>Studio Settings</span>
@@ -282,6 +291,25 @@ export const DashboardHome: React.FC<DashboardHomeProps> = ({
             ))}
           </div>
         </section>
+
+        {/* ── Footer Branding ── */}
+        <footer className="pt-6 pb-2 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+          <div className="flex items-center gap-2.5">
+            <img
+              src="/ampexweb-logo.png"
+              alt="Ampexweb Logo"
+              className="h-6 w-6 rounded-lg object-contain bg-white p-0.5 shadow-xs border border-slate-200/80 shrink-0"
+            />
+            <span className="font-medium text-slate-700">
+              Powered by <strong className="text-slate-900 font-semibold">Ampexweb</strong> · An Ampexweb Product
+            </span>
+          </div>
+          <div className="flex items-center gap-3 text-[11.5px] text-slate-400 font-medium">
+            <span>Enterprise Multi-LLM Benchmark</span>
+            <span>•</span>
+            <span>SOC 2 & ISO 27001 Ready</span>
+          </div>
+        </footer>
       </main>
     </div>
   );

@@ -52,6 +52,15 @@ export const VerifyAndFilesView: React.FC<VerifyAndFilesViewProps> = ({
           >
             Open Compare Studio to Test Consensus →
           </button>
+
+          <div className="pt-4 flex items-center justify-center gap-2 text-xs text-slate-500">
+            <img
+              src="/ampexweb-logo.png"
+              alt="Ampexweb"
+              className="h-4.5 w-4.5 rounded object-contain bg-white/95 p-0.5"
+            />
+            <span>Powered by <strong className="text-slate-300">Ampexweb</strong> · An Ampexweb Product</span>
+          </div>
         </div>
       </div>
     );
@@ -87,6 +96,15 @@ export const VerifyAndFilesView: React.FC<VerifyAndFilesViewProps> = ({
         >
           Return to Compare Studio
         </button>
+
+        <div className="pt-4 flex items-center justify-center gap-2 text-xs text-slate-500">
+          <img
+            src="/ampexweb-logo.png"
+            alt="Ampexweb"
+            className="h-4.5 w-4.5 rounded object-contain bg-white/95 p-0.5"
+          />
+          <span>Powered by <strong className="text-slate-300">Ampexweb</strong> · An Ampexweb Product</span>
+        </div>
       </div>
     </div>
   );

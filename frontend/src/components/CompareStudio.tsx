@@ -115,10 +115,17 @@ export const CompareStudio: React.FC<CompareStudioProps> = ({
 
           <div className="h-5 w-px bg-slate-800 hidden sm:block" />
 
-          <div className="hidden sm:flex items-center gap-2">
-            <span className="font-bold text-sm text-white">Compare Studio</span>
-            <span className="px-1.5 py-0.5 text-[9px] font-semibold tracking-wider bg-cyan-950/80 border border-cyan-700/60 text-cyan-300 rounded uppercase">
-              Split Screen
+          <div className="hidden sm:flex items-center gap-2.5">
+            <div className="flex items-center gap-2">
+              <img
+                src="/ampexweb-logo.png"
+                alt="Ampexweb"
+                className="h-6 w-6 rounded-md object-contain bg-white/95 p-0.5 shadow-2xs shrink-0"
+              />
+              <span className="font-bold text-sm text-white">Compare Studio</span>
+            </div>
+            <span className="px-2 py-0.5 text-[9.5px] font-semibold tracking-wider bg-cyan-950/80 border border-cyan-700/60 text-cyan-300 rounded-full">
+              An Ampexweb Product
             </span>
           </div>
 

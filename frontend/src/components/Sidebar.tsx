@@ -7,7 +7,6 @@ import {
   FolderOpen,
   Plus,
   Clock,
-  Sparkles,
   Settings,
   UserCheck
 } from 'lucide-react';
@@ -47,20 +46,24 @@ export const Sidebar: React.FC<SidebarProps> = ({
       <div>
         <div className="p-4 border-b border-slate-800/60 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="h-9 w-9 rounded-xl bg-gradient-to-tr from-cyan-500 via-indigo-500 to-amber-500 p-[1.5px] shadow-sm">
-              <div className="h-full w-full rounded-[10px] bg-[#0F172A] flex items-center justify-center">
-                <Sparkles className="w-4 h-4 text-cyan-400" />
-              </div>
-            </div>
+            <img
+              src="/ampexweb-logo.png"
+              alt="Ampexweb Logo"
+              className="h-7 w-7 rounded-lg object-contain bg-white/95 p-0.5 shadow-sm ring-1 ring-white/20 shrink-0"
+            />
             <div>
               <div className="flex items-center gap-1.5">
                 <span className="font-bold text-base tracking-tight text-white font-sans">
                   MagicMashup
                 </span>
               </div>
-              <span className="text-[10px] uppercase font-mono tracking-wider font-semibold text-cyan-400">
-                Enterprise AI Studio
-              </span>
+              <div className="flex items-center gap-1">
+                <span className="text-[10px] uppercase font-mono tracking-wider font-semibold text-cyan-400">
+                  By Ampexweb
+                </span>
+                <span className="text-[10px] text-slate-500">•</span>
+                <span className="text-[10px] text-slate-400">AI Studio</span>
+              </div>
             </div>
           </div>
         </div>
@@ -139,7 +142,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       </div>
 
       {/* ── Bottom Section: User Profile & Plan ── */}
-      <div className="p-3 border-t border-slate-800/80 bg-[#080E20]">
+      <div className="p-3 border-t border-slate-800/80 bg-[#080E20] space-y-2">
         <div className="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
           <div className="flex items-center gap-2.5 min-w-0">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-600 to-indigo-600 flex items-center justify-center font-bold text-xs text-white shadow-sm shrink-0">
@@ -163,6 +166,16 @@ export const Sidebar: React.FC<SidebarProps> = ({
           >
             <Settings className="w-4 h-4" />
           </button>
+        </div>
+
+        {/* Ampexweb Footer Branding */}
+        <div className="pt-1 flex items-center justify-center gap-1.5 text-[11px] text-slate-400 font-medium">
+          <img
+            src="/ampexweb-logo.png"
+            alt="Ampexweb"
+            className="h-4 w-4 rounded-sm object-contain bg-white/90 p-0.5 shrink-0"
+          />
+          <span>Powered by <strong className="text-slate-300">Ampexweb</strong></span>
         </div>
       </div>
     </aside>
