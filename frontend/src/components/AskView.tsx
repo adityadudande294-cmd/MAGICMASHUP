@@ -6,6 +6,7 @@ import {
   Check
 } from 'lucide-react';
 import { AVAILABLE_MODELS, type ModelDef } from '../utils/models';
+import { BACKEND_URL } from '../utils/constants';
 
 interface AskViewProps {
   onNavigateToCompare: () => void;
@@ -57,7 +58,7 @@ export const AskView: React.FC<AskViewProps> = ({
     setIsSubmitting(true);
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/chat', {
+      const res = await fetch(`${BACKEND_URL}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

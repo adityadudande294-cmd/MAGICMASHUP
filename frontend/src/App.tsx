@@ -7,8 +7,9 @@ import { AskView } from './components/AskView';
 import { VerifyAndFilesView } from './components/VerifyAndFilesView';
 import { AVAILABLE_MODELS, type NavTab } from './utils/models';
 import { type ChatMessage } from './components/ChatColumn';
+import { BACKEND_URL } from './utils/constants';
 
-const API_BASE = 'http://127.0.0.1:8000';
+const API_BASE = BACKEND_URL;
 
 export default function App() {
   // Navigation tab state: 'Home' is the default landing hub

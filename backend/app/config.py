@@ -109,10 +109,11 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "").strip()
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "").strip()
 PERPLEXITY_API_KEY = os.getenv("PERPLEXITY_API_KEY", "").strip()
 
-HOST = os.getenv("HOST", "127.0.0.1")
+HOST = os.getenv("HOST", "0.0.0.0")
 PORT = int(os.getenv("PORT", "8000"))
-CORS_ORIGINS = [
+_raw_cors = os.getenv("CORS_ORIGINS", "*").strip()
+CORS_ORIGINS = ["*"] if _raw_cors == "*" else [
     origin.strip()
-    for origin in os.getenv("CORS_ORIGINS", "http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173").split(",")
+    for origin in _raw_cors.split(",")
     if origin.strip()
 ]

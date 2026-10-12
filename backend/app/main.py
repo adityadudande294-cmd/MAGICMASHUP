@@ -13,6 +13,8 @@ import traceback
 from pathlib import Path
 from typing import List, Optional, Dict, Any
 from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from dotenv import load_dotenv
@@ -1139,15 +1141,6 @@ async def generate_response_for_model(model_id: str, prompt: str) -> ModelResult
 # API Endpoints
 # ─────────────────────────────────────────────────────────────────────────────
 
-@app.get("/")
-def read_root():
-    return {
-        "app": "AIfiesta",
-        "description": "Multi-LLM comparative split-screen chat platform",
-        "status": "online",
-        "live_gemini": bool(GEMINI_API_KEY)
-    }
-
 @app.get("/health")
 @app.get("/api/health")
 def health_check():
@@ -1188,6 +1181,37 @@ async def broadcast_chat(payload: ChatRequest):
         prompt=payload.prompt
     )
 
+# ─────────────────────────────────────────────────────────────────────────────
+# Static Files & SPA Routing (Unified Production Frontend Hosting)
+# ─────────────────────────────────────────────────────────────────────────────
+frontend_dist = Path(__file__).resolve().parent.parent.parent / "frontend" / "dist"
+if (frontend_dist / "index.html").is_file():
+    if (frontend_dist / "assets").is_dir():
+        app.mount("/assets", StaticFiles(directory=str(frontend_dist / "assets")), name="assets")
+
+    @app.get("/")
+    async def serve_index():
+        return FileResponse(frontend_dist / "index.html")
+
+    @app.get("/{full_path:path}")
+    async def serve_spa_or_static(full_path: str):
+        file_path = frontend_dist / full_path
+        if full_path and file_path.is_file():
+            return FileResponse(file_path)
+        return FileResponse(frontend_dist / "index.html")
+else:
+    @app.get("/")
+    def read_root():
+        return {
+            "app": "AIfiesta",
+            "description": "Multi-LLM comparative split-screen chat platform",
+            "status": "online",
+            "live_gemini": bool(GEMINI_API_KEY)
+        }
+
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+    host = os.getenv("HOST", "0.0.0.0")
+    port = int(os.getenv("PORT", "8000"))
+    is_dev = os.getenv("ENVIRONMENT", "development").lower() == "development" and not os.getenv("RENDER")
+    uvicorn.run("app.main:app", host=host, port=port, reload=is_dev)

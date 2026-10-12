@@ -1,25 +1,55 @@
+# ==============================================================================
+# Magic Mashup - Backend Git Ignore Configuration
+# ==============================================================================
+
 # Environment & Secrets
 .env
-backend/.env
 .env.*
 *.env
+*.env.local
 *.backup
+*.bak
+*.secret
+*.key
+*.pem
+credentials.json
 !.env.example
 
-# Python
-venv/
-.venv/
-env/
+# Python Caches & Build
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*$py.class
+*.so
 .Python
+build/
+dist/
+*.egg-info/
 pip-log.txt
 pip-delete-this-directory.txt
 
-# Operating System & IDE
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# Databases & Logs
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+logs/
+*.log
+
+# Testing & Coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# IDE & OS
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
+*.swp
+*.swo

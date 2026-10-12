@@ -2,8 +2,12 @@
 AIfiesta Root Module Entrypoint
 Re-exports the FastAPI app from app.main
 """
+import os
 from app.main import app
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+    host = os.getenv("HOST", "0.0.0.0")
+    port = int(os.getenv("PORT", "8000"))
+    is_dev = os.getenv("ENVIRONMENT", "development").lower() == "development" and not os.getenv("RENDER")
+    uvicorn.run("main:app", host=host, port=port, reload=is_dev)

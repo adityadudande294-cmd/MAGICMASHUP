@@ -129,4 +129,8 @@ export const ENTERPRISE_QUICK_PROMPTS: QuickPrompt[] = [
   }
 ];
 
-export const BACKEND_URL = 'http://127.0.0.1:8000';
+const rawApiBase = import.meta.env.VITE_API_BASE_URL;
+export const BACKEND_URL =
+  rawApiBase !== undefined && rawApiBase !== ''
+    ? rawApiBase.replace(/\/+$/, '')
+    : (import.meta.env.PROD ? '' : 'http://127.0.0.1:8000');
